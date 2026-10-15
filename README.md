@@ -23,14 +23,12 @@ Comparison of a baseline CNN and an ImageNet-pretrained MobileNetV2 (transfer le
 |---|---|---|---|
 | Basic CNN | `Basic_CNN.py` | 82.51% | **82.79%** |
 | MobileNetV2 (default: lr 1e-3, Dense 128, batch 16) | `MobileNetV2.py` | 88.55% | **87.53%** |
-| lr 1e-4 | `MobileNetV2_lr` | 87.46% | 86.83% |
-| lr 1e-2 | `MobileNetV2_lr` | 57.47% | 56.15% |
-| Dense 64 | `MobileNetV2_Dense` | 86.53% | 86.05% |
-| Dense 256 | `MobileNetV2_Dense` | 89.34% | 89.23% |
-| batch 8 | `MobileNetV2_batch_size` | 86.95% | 86.61% |
-| batch 32 | `MobileNetV2_batch_size` | 88.93% | 88.42% |
-
-Learning curves and logs: `results/`.
+| lr 1e-4 | `MobileNetV2_lr.py` | 87.46% | 86.83% |
+| lr 1e-2 | `MobileNetV2_lr.py` | 57.47% | 56.15% |
+| Dense 64 | `MobileNetV2_Dense.py` | 86.53% | 86.05% |
+| Dense 256 | `MobileNetV2_Dense.py` | 89.34% | 89.23% |
+| batch 8 | `MobileNetV2_batch_size.py` | 86.95% | 86.61% |
+| batch 32 | `MobileNetV2_batch_size.py` | 88.93% | 88.42% |
 
 ## Observations
 - Transfer learning (frozen backbone, 167K trainable params) outperformed the baseline CNN (7.4M params) by 4.7 pp on test (single runs).
@@ -41,6 +39,7 @@ Learning curves and logs: `results/`.
 ## Limitations / not explored
 - Single runs, no fixed seeds; split not seeded.
 - Model-specific preprocessing (`preprocess_input`), backbone fine-tuning, per-class metrics (macro-F1, confusion matrix), and class-imbalance handling were not tried.
+- Library versions were not recorded (school PC)
 
 ## Files
 `data_Separation.py` (split), `data_Count.py` (class counts), `Basic_CNN.py`, `MobileNetV2.py`, `MobileNetV2_lr`, MobileNetV2_Dense, MobileNetV2_batch_size (hyperparameter variants; the active setting is the uncommented line).
